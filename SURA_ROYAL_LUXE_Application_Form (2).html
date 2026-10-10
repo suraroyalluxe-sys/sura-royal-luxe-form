@@ -1,0 +1,75 @@
+<!DOCTYPE html> <html lang="bn"> <head>     <meta charset="UTF-8">     <title>SURA ROYAL LUXE - Job Application Form</title>     <style>         @page {             size: A4;             margin: 0;         }         body {             font-family: 'Kalpurush', 'Segoe UI', Arial, sans-serif;             background-color: #f4f4f4;             margin: 0;             padding: 20px;             color: #222;         }         .page {             width: 210mm;             min-height: 297mm;             padding: 15mm 18mm;             margin: 0 auto;             background: #fff;             box-shadow: 0 0 10px rgba(0,0,0,0.1);             position: relative;             box-sizing: border-box;             overflow: hidden;         }         /* জলছাপ / Watermark styling */         .watermark {             position: absolute;             top: 50%;             left: 50%;             transform: translate(-50%, -50%) rotate(-30deg);             font-size: 52pt;             font-weight: bold;             color: rgba(184, 134, 11, 0.08); /* Premium Gold Tint Watermark */             text-transform: uppercase;             white-space: nowrap;             pointer-events: none;             user-select: none;             z-index: 0;             letter-spacing: 2px;         }         .content {             position: relative;             z-index: 1;         }         .header {             text-align: center;             border-bottom: 2px solid #b8860b;             padding-bottom: 8px;             margin-bottom: 12px;             position: relative;         }         .brand-name {\n            padding-right: 105px;             font-size: 22pt;             font-weight: bold;             color: #1a2a3a;             letter-spacing: 2.5px;             margin: 0;             text-transform: uppercase;         }         .brand-sub {             font-size: 9pt;             color: #b8860b;             font-weight: 600;             margin-top: 2px;             letter-spacing: 1px;         }         .form-title {             font-size: 13pt;             font-weight: bold;             background: #1a2a3a;             color: #fff;             display: inline-block;             padding: 3px 18px;             border-radius: 12px;             margin-top: 6px;         }         /* ছবি আপলোড বক্স স্টাইল */         .photo-box {             position: absolute;             right: 0;             top: 0;             width: 100px;             height: 120px;             border: 1px dashed #1a2a3a;             display: flex;             flex-direction: column;             align-items: center;             justify-content: center;             font-size: 8pt;             color: #666;             text-align: center;             background: #fafafa;             cursor: pointer;             overflow: hidden;             z-index: 20;         }         .photo-box input[type="file"] {             position: absolute;             inset: 0;             width: 100%;             height: 100%;             opacity: 0;             cursor: pointer;             z-index: 21;         }         .photo-box img {             width: 100%;             height: 100%;             object-fit: cover;             display: none;         }         .form-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            padding-bottom: 10px;
+        }
+        .action-btn {
+            border: 0;
+            border-radius: 5px;
+            padding: 10px 22px;
+            font-family: inherit;
+            font-size: 10pt;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .print-btn { background: #1a2a3a; color: #fff; }
+        .clear-btn { background: #b8860b; color: #fff; }
+        .action-btn:hover { opacity: .9; }
+        .section-header {             background: #f0f4f8;             border-left: 4px solid #b8860b;             padding: 4px 8px;             font-size: 10pt;             font-weight: bold;             color: #1a2a3a;             margin-top: 10px;             margin-bottom: 8px;             text-transform: uppercase;         }         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }         .field-group { font-size: 9.5pt; margin-bottom: 4px; }         .field-group label { font-weight: 600; color: #333; }         .line-input {             border: none;             border-bottom: 1px dotted #555;             width: 60%;             outline: none;             font-size: 9.5pt;         }         .select-input, .textarea-input {             border: 1px solid #ccc;             border-radius: 4px;             padding: 3px 6px;             font-size: 9.5pt;             outline: none;             font-family: inherit;         }         .select-input { width: 65%; background: #fff; }         .textarea-input { width: 100%; height: 45px; resize: none; box-sizing: border-box; margin-top: 3px; }         table {             width: 100%;             border-collapse: collapse;             margin-top: 5px;             font-size: 9pt;         }         table, th, td { border: 1px solid #ccc; }         th { background: #1a2a3a; color: white; padding: 4px; text-align: center; }         td { padding: 4px; text-align: center; }         .footer-sig { margin-top: 25px; display: flex; justify-content: space-between; font-size: 9pt; }         .sig-box { text-align: center; border-top: 1px solid #333; width: 180px; padding-top: 3px; }         @media print {
+            .form-actions { display: none !important; }             body { padding: 0; background: none; }             .page { box-shadow: none; margin: 0; width: 100%; height: 100%; page-break-after: always; }             .no-print { display: none; }             .photo-box { border: 1px solid #1a2a3a; }         }     </style> </head> <body>  <div class="page">     <!-- জলছাপ / Watermark -->     <div class="watermark">SURA ROYAL LUXE</div>      <div class="content">
+            <div class="photo-box" title="ছবি যোগ করতে এখানে ক্লিক করুন" role="button" tabindex="0" aria-label="ছবি আপলোড করুন">                 <span id="photoText">ছবি যুক্ত করুন<br>(Passport Size)</span>                 <img id="previewImg" src="" alt="Candidate Photo">                 <input type="file" id="imageLoader" accept="image/*" onchange="previewImage(event)">             </div>         <div class="header">             <div class="brand-name">SURA ROYAL LUXE</div>             <div class="brand-sub">CUSTOM SOLID TEAK WOOD FURNITURE & INTERIOR SOLUTION</div>             <div class="form-title">কর্মী নিয়োগ ফরম / Application Form</div>
+            </div>          <form id="jobForm">             <!-- ১. ব্যক্তিগত তথ্য -->             <div class="section-header">১. ব্যক্তিগত তথ্য (Personal Details)</div>             <div class="grid-2">                 <div class="field-group"><label>আবেদনকারীর নাম:</label> <input type="text" name="fullName" class="line-input" style="width:65%;"></div>                 <div class="field-group"><label>মোবাইল নম্বর:</label> <input type="text" name="phone" class="line-input" style="width:65%;"></div>                 <div class="field-group"><label>পিতার নাম:</label> <input type="text" name="fatherName" class="line-input" style="width:70%;"></div>                 <div class="field-group"><label>জরুরী যোগাযোগ:</label> <input type="text" name="emergencyPhone" class="line-input" style="width:60%;"></div>                 <div class="field-group"><label>মাতার নাম:</label> <input type="text" name="motherName" class="line-input" style="width:70%;"></div>                 <div class="field-group"><label>NID / জন্ম নিবন্ধন:</label> <input type="text" name="nid" class="line-input" style="width:58%;"></div>                 <div class="field-group"><label>জন্ম তারিখ:</label> <input type="text" name="dob" class="line-input" style="width:68%;"></div>                 <div class="field-group"><label>বৈবাহিক অবস্থা:</label>
+                    <select name="maritalStatus" class="select-input" style="width:65%;">
+                        <option value="">-- অবস্থা নির্বাচন করুন --</option>
+                        <option value="অবিবাহিত">অবিবাহিত</option>
+                        <option value="বিবাহিত">বিবাহিত</option>
+                        <option value="তালাকপ্রাপ্ত">তালাকপ্রাপ্ত</option>
+                        <option value="বিধবা">বিধবা</option>
+                        <option value="বিপত্নীক">বিপত্নীক</option>
+                    </select>
+                </div>             </div>             <div class="field-group" style="margin-top:4px;"><label>বর্তমান ঠিকানা:</label> <input type="text" name="presentAddress" class="line-input" style="width:82%;"></div>             <div class="field-group"><label>স্থায়ী ঠিকানা:</label> <input type="text" name="permanentAddress" class="line-input" style="width:83%;"></div>              <!-- ২. পদের বিবরণ ও দক্ষতা -->             <div class="section-header">২. আবেদনের পদ ও কারিগরি দক্ষতা (Position & Expertise)</div>             <div class="grid-2">                 <div class="field-group">                     <label>আবেদনকৃত পদ:</label>                     <select name="appliedPosition" class="select-input">                         <option value="">-- পদ নির্বাচন করুন --</option>                         <option value="কাঠ মিস্ত্রি">কাঠ মিস্ত্রি</option>                         <option value="নকশা মিস্ত্রি">নকশা মিস্ত্রি</option>                         <option value="লেকার মিস্ত্রি">লেকার মিস্ত্রি</option>                     </select>                 </div>             </div>             <div class="field-group" style="margin-top: 6px;">                 <label>বিশেষ অভিজ্ঞতা ও কারিগরি দক্ষতা (বিবরণ):</label>                 <textarea name="specialExperience" class="textarea-input" placeholder="প্রার্থীর পূর্ব অভিজ্ঞতা ও কাজের দক্ষতা সম্পর্কে এখানে লিখুন..."></textarea>             </div>              <!-- ৩. পূর্ববর্তী কাজের অভিজ্ঞতা -->             <div class="section-header">৩. কাজের অভিজ্ঞতা (Work Experience)</div>             <table>                 <thead>                     <tr>                         <th>প্রতিষ্ঠান / কারখানার নাম</th>                         <th>পদের নাম</th>                         <th>সময়কাল (বছর)</th>                         <th>সর্বশেষ বেতন</th>                     </tr>                 </thead>                 <tbody>                     <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>                     <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>                 </tbody>             </table>              <!-- ৪. জামিনদার / পরিচয়দানকারী -->             <div class="section-header">৪. জামিনদার / পরিচয়দানকারী (Guarantor / Reference)</div>             <div class="grid-2">                 <div class="field-group"><label>নাম:</label> <input type="text" name="refName" class="line-input" style="width:80%;"></div>                 <div class="field-group"><label>মোবাইল:</label> <input type="text" name="refPhone" class="line-input" style="width:75%;"></div>                 <div class="field-group"><label>সম্পর্ক:</label> <input type="text" name="refRelation" class="line-input" style="width:75%;"></div>                 <div class="field-group"><label>NID নম্বর:</label> <input type="text" name="refNid" class="line-input" style="width:70%;"></div>             </div>              <!-- ৫. অঙ্গীকারনামা -->             <div class="section-header">৫. অঙ্গীকারনামা (Declaration)</div>             <p style="font-size: 8.5pt; margin: 4px 0; color: #444; text-align: justify;">                 আমি নিশ্চয়তা প্রদান করছি যে, ফর্মে প্রদত্ত সকল তথ্য সত্য। কোনো তথ্য মিথ্যা বা ভুল প্রমাণিত হলে কর্তৃপক্ষ আমার নিয়োগ বাতিল বা আইনানুগ ব্যবস্থা গ্রহণ করতে পারবে।             </p>              <div class="footer-sig">                 <div class="sig-box">আবেদনকারীর স্বাক্ষর ও তারিখ</div>                 <div class="sig-box">কর্তৃপক্ষের স্বাক্ষর ও তারিখ</div>             </div>             <div class="form-actions no-print">
+                <button type="button" class="action-btn print-btn" onclick="window.print()">প্রিন্ট করুন</button>
+                <button type="button" class="action-btn clear-btn" onclick="clearForm()">ফর্ম খালি করুন</button>
+            </div>
+        </form>     </div> </div>  <!-- ছবি প্রিভিউ করার স্ক্রিপ্ট --> <script>     function previewImage(event) {
+        var file = event.target.files && event.target.files[0];
+        if (!file) return;
+        if (!file.type.startsWith("image/")) {
+            alert("অনুগ্রহ করে একটি ছবি নির্বাচন করুন।");
+            event.target.value = "";
+            return;
+        }
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById("previewImg");
+            output.src = reader.result;
+            output.style.display = "block";
+            document.getElementById("photoText").style.display = "none";
+        };
+        reader.onerror = function () {
+            alert("ছবিটি খোলা যায়নি। অন্য একটি ছবি নির্বাচন করুন।");
+        };
+        reader.readAsDataURL(file);
+    }     function clearForm() {
+        if (!confirm("আপনি কি ফর্মের সব তথ্য মুছে ফেলতে চান?")) return;
+        document.getElementById("jobForm").reset();
+        var preview = document.getElementById("previewImg");
+        preview.src = "";
+        preview.style.display = "none";
+        document.getElementById("photoText").style.display = "block";
+        document.getElementById("imageLoader").value = "";
+        // Clear editable cells in the work-experience table.
+        document.querySelectorAll("tbody td").forEach(function(cell) {
+            cell.textContent = "";
+            cell.contentEditable = "true";
+        });
+    }
+document.querySelector(".photo-box").addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            document.getElementById("imageLoader").click();
+        }
+    });
+</script>  </body> </html>
